@@ -1,0 +1,196 @@
+/* CSS Reset and Variables */
+:root {
+    --bg-color: #000000;
+    /* Pure Black Background */
+    --text-color: #D4AF37;
+    /* Gold Main Text */
+    --gold: #D4AF37;
+    --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    --font-serif: 'Cinzel', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --font-script: 'Great Vibes', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Fabric Background Effect */
+.fabric-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 10px),
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 10px);
+    background-size: 20px 20px;
+    z-index: -2;
+    opacity: 0.3;
+    /* Slightly subtler on black */
+}
+
+.vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 40%, #000 120%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Custom Cursor */
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9998;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Container */
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    perspective: 1000px;
+}
+
+/* Logo SVG Styles */
+.logo-wrapper {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.2));
+}
+
+.logo-text {
+    font-family: var(--font-serif);
+    fill: var(--gold);
+    /* Ensure all logo text is gold */
+    opacity: 0;
+    /* Animated in via JS */
+}
+
+.prefix-text {
+    font-size: 32px;
+    font-family: var(--font-script);
+    fill: var(--gold);
+}
+
+.main-text {
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.sub-text {
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 14px;
+    fill: var(--gold);
+    /* Gold subtext */
+    text-transform: uppercase;
+}
+
+/* Scissors/V Symbol */
+.scissor-blade {
+    transform-origin: 0 10px;
+    /* Pivot point */
+}
+
+/* Tagline */
+.tagline {
+    margin-top: -30px;
+    font-size: 1rem;
+    color: #888;
+    letter-spacing: 4px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* CTA Button */
+.cta-container {
+    margin-top: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.cta-btn {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 12px 30px;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    cursor: none;
+    /* We use custom cursor */
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-btn:hover {
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.cta-btn:hover::before {
+    left: 100%;
+}
+
+/* Interactive Hover States */
+.hover-target {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}

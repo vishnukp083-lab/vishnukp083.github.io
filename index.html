@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishnu K. Ponnappan | Cloud & System Engineer</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="portfolio.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">VKP<span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact" class="btn-outline">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <p class="mono-text">Hi, my name is</p>
+                <h1 class="big-heading">Vishnu K. Ponnappan.</h1>
+                <h2 class="big-heading text-slate">I build scalable infrastructure.</h2>
+                <p class="hero-description">
+                    I am an analytical and team-oriented <strong>Cloud & System Engineer</strong> with extensive
+                    experience in system architecture, automation, and DevOps. I specialize in designing robust backup
+                    solutions, automating cloud deployments, and optimizing Linux environments.
+                </p>
+                <a href="#experience" class="btn-main">Check out my experience</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-heading">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I am a dynamic professional with a Graduate Certificate in Project Management and a background
+                        in Computer Applications. My career is defined by strategic accountability in System Engineering
+                        roles.
+                    </p>
+                    <p>
+                        I have a proven ability to utilize tools like <strong>Service Now, CommVault, and
+                            Ansible</strong> to reduce costs and improve outputs. Whether it's achieving 99.9% uptime or
+                        reducing recovery times by 50%, I am driven by efficiency and reliability.
+                    </p>
+                    <ul class="skills-list">
+                        <li>AWS & Azure</li>
+                        <li>Linux (RHEL/Ubuntu/CentOS)</li>
+                        <li>Kubernetes</li>
+                        <li>Ansible Automation</li>
+                        <li>Service Now</li>
+                        <li>Python & Bash</li>
+                    </ul>
+                </div>
+                <div class="about-img">
+                    <div class="img-wrapper">
+                        <!-- Placeholder for user image if they have one, using a tech graphic for now -->
+                        <div class="tech-graphic">
+                            <i class="fas fa-server"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <h2 class="section-heading">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Cloud & System Engineer / Admin</h3>
+                        <span class="company">Tata Consultancy Services</span>
+                        <span class="date">2016 – 2023</span>
+                    </div>
+                    <ul class="job-duties">
+                        <li>Strategically led multiple projects, providing automation solutions designed to reduce cost
+                            and improve outputs.</li>
+                        <li>Developed <strong>Ansible playbooks</strong> to automate infrastructure provisioning and
+                            configurations across Linux servers.</li>
+                        <li>Automated cloud resource deployments in <strong>Azure and AWS</strong>, ensuring deployment
+                            readiness.</li>
+                        <li>Achieved <strong>99.9% uptime</strong> and improved operational efficiency.</li>
+                        <li>Implemented <strong>Service Now</strong> to streamline IT support, improving resolution
+                            times by <strong>35%</strong>.</li>
+                        <li>Reduced data recovery times by <strong>50%</strong> through optimized CommVault backup
+                            solutions.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-heading">Featured Projects</h2>
+
+            <!-- VASTRA STUDIO PROJECT -->
+            <div class="project-card featured">
+                <div class="project-content">
+                    <p class="mono-text project-overline">Featured Project</p>
+                    <h3 class="project-title">The Vastra Studio</h3>
+                    <div class="project-desc">
+                        <p>
+                            A premium, animated digital brand identity for a bespoke tailoring studio.
+                            Features a <strong>responsive web showcase</strong> with advanced GSAP animations, including
+                            a "Scissors-to-Text" morphing effect and a luxury Black & Gold aesthetic.
+                        </p>
+                    </div>
+                    <ul class="project-tech">
+                        <li>HTML5/CSS3</li>
+                        <li>GSAP Animation</li>
+                        <li>SVG</li>
+                        <li>Canvas API</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="index.html" target="_blank" class="btn-link" title="View Project"><i
+                                class="fas fa-external-link-alt"></i> View Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <!-- Preview of the Vastra Logo -->
+                    <div class="vastra-preview">
+                        <img src="The_Vastra_Studio_Logo.png" alt="Vastra Studio Logo"
+                            style="width: 80%; height: auto;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Mini Card for Kubernetes -->
+            <div class="other-projects-grid">
+                <div class="mini-card">
+                    <div class="folder-icon"><i class="far fa-folder"></i></div>
+                    <div class="card-top">
+                        <h3>Kubernetes Cluster Automation</h3>
+                        <p>Designed and deployed HA Kubernetes clusters using Ansible and Terraform. Implemented
+                            auto-scaling policies.</p>
+                    </div>
+                    <ul class="mini-tech">
+                        <li>K8s</li>
+                        <li>Docker</li>
+                        <li>Terraform</li>
+                    </ul>
+                </div>
+                <div class="mini-card">
+                    <div class="folder-icon"><i class="far fa-folder"></i></div>
+                    <div class="card-top">
+                        <h3>Enterprise Backup Solution</h3>
+                        <p>Architected a CommVault disaster recovery solution reducing RTO/RPO by 50% for critical
+                            banking systems.</p>
+                    </div>
+                    <ul class="mini-tech">
+                        <li>CommVault</li>
+                        <li>Storage</li>
+                        <li>DR Planning</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Certifications -->
+        <section id="skills" class="section">
+            <h2 class="section-heading">Certifications & Education</h2>
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <i class="fab fa-redhat fa-2x"></i>
+                    <h4>RHCSA</h4>
+                    <p>Red Hat Certified System Administrator</p>
+                </div>
+                <div class="cert-item">
+                    <i class="fab fa-aws fa-2x"></i>
+                    <h4>AWS Certified</h4>
+                    <p>Solutions Architect</p>
+                </div>
+                <div class="cert-item">
+                    <i class="fab fa-microsoft fa-2x"></i>
+                    <h4>Azure 104</h4>
+                    <p>Microsoft Certified Administrator</p>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-graduation-cap fa-2x"></i>
+                    <h4>Project Management</h4>
+                    <p>Algoma University (2024)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section text-center">
+            <p class="mono-text">What's Next?</p>
+            <h2 class="big-heading">Get In Touch</h2>
+            <p class="contact-text">
+                I am currently looking for new opportunities in Cloud Engineering and System Administration.
+                Reach out if you need a strategic problem solver.
+            </p>
+            <a href="mailto:vishnukp083@gmail.com" class="btn-main">Say Hello</a>
+            <div class="contact-details">
+                <p><i class="fas fa-phone"></i> (289) 623-5351</p>
+                <p><i class="fas fa-envelope"></i> vishnukp083@gmail.com</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Designed & Built by Vishnu K. Ponnappan</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="portfolio.js"></script>
+</body>
+
+</html>
