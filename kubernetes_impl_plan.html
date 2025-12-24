@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubernetes Cluster Automation | Implementation Plan</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code:wght@400&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #0a192f;
+            /* Navy */
+            color: #8892b0;
+            /* Slate */
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            padding: 60px 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #e6f1ff;
+            /* Lightest Slate */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #64ffda;
+            /* Green */
+            font-family: 'Fira Code', monospace;
+        }
+
+        h2::before {
+            content: "> ";
+            color: #64ffda;
+        }
+
+        .subtitle {
+            font-family: 'Fira Code', monospace;
+            color: #64ffda;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .section-box {
+            background: #112240;
+            /* Light Navy */
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #64ffda;
+        }
+
+        .phase-title {
+            color: #e6f1ff;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 50px;
+            color: #64ffda;
+            text-decoration: none;
+            border: 1px solid #64ffda;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Kubernetes Cluster Automation on AWS</h1>
+        <p class="subtitle">Implementation Plan</p>
+
+        <p>
+            This project focuses on designing and automating a highly available Kubernetes cluster on AWS using
+            Terraform,
+            following production-oriented cloud and DevOps best practices.
+        </p>
+
+        <h2>Project Scope (High Level)</h2>
+        <div class="section-box">
+            <ul>
+                <li>Provision AWS infrastructure using Terraform (VPC, subnets, security groups, IAM)</li>
+                <li>Deploy a highly available Kubernetes control plane on EC2</li>
+                <li>Configure auto-scaling worker nodes using AWS Auto Scaling Groups</li>
+                <li>Implement Kubernetes networking and validate cluster scalability</li>
+                <li>Version control and documentation using GitHub</li>
+            </ul>
+        </div>
+
+        <h2>Implementation Phases</h2>
+        <div class="section-box">
+            <ul>
+                <li>
+                    <span class="phase-title">1. Architecture Design:</span>
+                    Designed a multi-AZ AWS architecture for high availability. Defined Kubernetes control plane, worker
+                    nodes, and load balancing strategy.
+                </li>
+                <li>
+                    <span class="phase-title">2. Infrastructure Provisioning:</span>
+                    Automated AWS resource creation using Terraform modules. Configured networking, security, and IAM
+                    roles.
+                </li>
+                <li>
+                    <span class="phase-title">3. Kubernetes Cluster Setup:</span>
+                    Installed and configured Kubernetes using kubeadm on EC2 instances. Deployed container networking
+                    (CNI) for pod communication.
+                </li>
+                <li>
+                    <span class="phase-title">4. Auto Scaling & Validation:</span>
+                    Implemented worker node auto-scaling using Auto Scaling Groups. Tested workload scaling and cluster
+                    resilience.
+                </li>
+                <li>
+                    <span class="phase-title">5. Documentation & Portfolio Readiness:</span>
+                    Maintained source code in GitHub. Documented architecture, design decisions, and future
+                    enhancements.
+                </li>
+            </ul>
+        </div>
+
+        <h2>Outcome</h2>
+        <div class="section-box">
+            <p>
+                Successfully delivered a scalable and resilient Kubernetes cluster on AWS, demonstrating hands-on
+                expertise in
+                infrastructure automation, cloud-native architecture, and container orchestration.
+            </p>
+        </div>
+
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    </div>
+
+</body>
+
+</html>
