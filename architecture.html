@@ -10,13 +10,10 @@
         rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         body {
             background-color: #0a192f;
-            /* Navy */
             color: #8892b0;
-            /* Slate */
             font-family: 'Inter', sans-serif;
             display: flex;
             flex-direction: column;
@@ -56,7 +53,6 @@
             background: rgba(100, 255, 218, 0.1);
         }
 
-        /* Diagram Styles */
         rect,
         circle,
         polygon {
@@ -66,7 +62,6 @@
 </head>
 
 <body>
-
     <div class="container">
         <h1>Deployment Architecture</h1>
         <p style="margin-bottom: 40px; font-family: 'Fira Code', monospace;">> Visualizing the Terraform & EC2
@@ -90,10 +85,9 @@
             </defs>
 
             <!-- Paths -->
-            <path id="path-1" d="M 100 150 L 135 150" stroke="#233554" stroke-width="2" stroke-dasharray="5,5"
+            <path id="path-1" d="M 100 150 L 140 150" stroke="#233554" stroke-width="2" stroke-dasharray="5,5"
                 fill="none" />
-            <!-- Secrets to Terraform -->
-            <path id="path-sec" d="M 215 150 L 265 150" stroke="#233554" stroke-width="2" stroke-dasharray="5,5"
+            <path id="path-sec" d="M 210 150 L 260 150" stroke="#233554" stroke-width="2" stroke-dasharray="5,5"
                 fill="none" />
             <path id="path-2" d="M 350 150 L 450 150" stroke="#233554" stroke-width="2" stroke-dasharray="5,5"
                 fill="none" />
@@ -107,11 +101,11 @@
                 <text x="0" y="60" text-anchor="middle" fill="#8892b0" font-size="12">Local</text>
             </g>
 
-            <!-- GitHub Secrets Node -->
+            <!-- Secrets Node -->
             <g class="arch-node" id="node-secrets" transform="translate(175, 150)">
-                <rect x="-30" y="-30" width="60" height="60" rx="5" fill="#0a192f" stroke="#ff0000" stroke-width="2" />
-                <text x="0" y="5" text-anchor="middle" fill="#ff0000" font-size="20" class="fa-icon">🔒</text>
-                <text x="0" y="50" text-anchor="middle" fill="#8892b0" font-size="10">Secrets</text>
+                <rect x="-35" y="-35" width="70" height="70" rx="10" fill="#0a192f" stroke="#ff4444" stroke-width="2" />
+                <text class="lock-icon" x="0" y="5" text-anchor="middle" fill="#ff4444" font-size="24">🔒</text>
+                <text x="0" y="55" text-anchor="middle" fill="#8892b0" font-size="10">Secrets Check</text>
             </g>
 
             <g class="arch-node" id="node-terraform" transform="translate(300, 150)">
@@ -153,44 +147,52 @@
         </div>
     </div>
 
-    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
-        // Animation Logic
         const archTl = gsap.timeline({ repeat: -1, repeatDelay: 2 });
         const packet = document.getElementById('packet');
         const statusText = document.getElementById('arch-status');
 
-        // Reset state
+        // Init
         gsap.set('#node-ec2', { opacity: 0.3 });
         gsap.set('#hosting-light', { fill: '#222' });
+        gsap.set('#node-secrets rect', { stroke: '#ff4444' });
+        gsap.set('.lock-icon', { fill: '#ff4444', textContent: '🔒' });
 
-        // 1. Dev -> Terraform
-        archTl.set(statusText, { textContent: "Validating Terraform Script..." })
-            .fromTo(packet,
-                { opacity: 1, cx: 50, cy: 150 },
-                { cx: 300, cy: 150, duration: 1.5, ease: "power1.inOut" }
-            )
+        archTl.set(statusText, { textContent: "Pushing Code to GitHub..." })
+            .fromTo(packet, { opacity: 1, cx: 50, cy: 150 }, { cx: 175, cy: 150, duration: 1, ease: "power1.inOut" })
+
+            // Security Check
+            .set(statusText, { textContent: "Validating Secrets..." })
+            .to('#node-secrets rect', { stroke: '#ffaa00', duration: 0.3 })
+            .to('#node-secrets rect', { stroke: '#64ffda', duration: 0.3, delay: 0.5 })
+            .to('.lock-icon', { fill: '#64ffda', textContent: '🔓', duration: 0.2 }, "<")
+            .set(statusText, { textContent: "Credentials Verified! Access Granted." })
+            .to('#node-secrets', { scale: 1.1, yoyo: true, repeat: 1, duration: 0.2 })
+
+            // Terraform
+            .set(statusText, { textContent: "Initializing Terraform..." })
+            .to(packet, { cx: 300, cy: 150, duration: 1, ease: "power1.inOut" })
             .to('#node-terraform polygon', { scale: 1.2, stroke: "#fff", duration: 0.2, yoyo: true, repeat: 1 })
 
-            // 2. Terraform -> Logic Check
+            // Logic Check
             .set(statusText, { textContent: "Checking AWS Tags: Name=appstudy..." })
             .to(packet, { cx: 500, cy: 150, duration: 1, ease: "power1.inOut" })
             .to('#node-logic rect', { stroke: "#fff", duration: 0.2, yoyo: true, repeat: 3 })
 
-            // 3. Logic Success -> Found EC2
+            // EC2
             .set(statusText, { textContent: "Instance Found! Deploying..." })
             .to('#node-logic text', { fill: "#64ffda", scale: 1.2, duration: 0.2 })
             .to(packet, { cx: 700, cy: 150, duration: 1, ease: "power1.inOut" })
-
-            // 4. EC2 Activation
             .to('#node-ec2', { opacity: 1, duration: 0.5 })
             .set(statusText, { textContent: "Hosting: The Vastra Studio (Active)" })
             .to('#hosting-light', { fill: "#00ff00", duration: 0.2 })
             .to('#node-ec2 rect', { stroke: "#fff", strokeWidth: 4, duration: 0.5, yoyo: true, repeat: 1 })
 
-            // 5. Cleanup for loop
-            .to(packet, { opacity: 0, duration: 0.5 });
+            // Cleanup
+            .to(packet, { opacity: 0, duration: 0.5 })
+            .to('#node-secrets rect', { stroke: '#ff4444', duration: 0.1 }, "+=0.5")
+            .to('.lock-icon', { fill: '#ff4444', textContent: '🔒', duration: 0.1 });
     </script>
 </body>
 

@@ -1,0 +1,31 @@
+name: AWS OIDC Authentication Test
+
+# Trigger on push to main branch
+on:
+  push:
+    branches:
+      - main
+  # Manual trigger needed?
+  workflow_dispatch:
+
+# Permissions required for OIDC (id-token: write)
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  aws-auth-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-session-name: GitHubActionsSession
+          aws-region: us-east-1
+
+      - name: Verify Authentication
+        run: aws sts get-caller-identity
