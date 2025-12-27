@@ -90,7 +90,10 @@
             </defs>
 
             <!-- Paths -->
-            <path id="path-1" d="M 100 150 L 250 150" stroke="#233554" stroke-width="2" stroke-dasharray="5,5"
+            <path id="path-1" d="M 100 150 L 135 150" stroke="#233554" stroke-width="2" stroke-dasharray="5,5"
+                fill="none" />
+            <!-- Secrets to Terraform -->
+            <path id="path-sec" d="M 215 150 L 265 150" stroke="#233554" stroke-width="2" stroke-dasharray="5,5"
                 fill="none" />
             <path id="path-2" d="M 350 150 L 450 150" stroke="#233554" stroke-width="2" stroke-dasharray="5,5"
                 fill="none" />
@@ -102,6 +105,13 @@
                 <circle r="40" fill="#0a192f" stroke="#64ffda" stroke-width="2" />
                 <text x="0" y="5" text-anchor="middle" fill="#e6f1ff" font-size="12" font-family="monospace">Dev</text>
                 <text x="0" y="60" text-anchor="middle" fill="#8892b0" font-size="12">Local</text>
+            </g>
+
+            <!-- GitHub Secrets Node -->
+            <g class="arch-node" id="node-secrets" transform="translate(175, 150)">
+                <rect x="-30" y="-30" width="60" height="60" rx="5" fill="#0a192f" stroke="#ff0000" stroke-width="2" />
+                <text x="0" y="5" text-anchor="middle" fill="#ff0000" font-size="20" class="fa-icon">🔒</text>
+                <text x="0" y="50" text-anchor="middle" fill="#8892b0" font-size="10">Secrets</text>
             </g>
 
             <g class="arch-node" id="node-terraform" transform="translate(300, 150)">
